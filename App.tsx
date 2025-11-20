@@ -45,7 +45,7 @@ const PORTFOLIO: Company[] = [
     name: 'BlockIdentity', 
     sector: 'Digital Identity', 
     stage: 'Series B', 
-    image: 'https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1639322537504-6427a16b0a28?q=80&w=2832&auto=format&fit=crop',
     description: 'Sovereign decentralized identity (DID) protocol allowing users to own their data across Web3 applications without centralized intermediaries.'
   },
   { 
