@@ -1,3 +1,4 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -8,16 +9,30 @@ import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot, TrendingUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { sendMessageToGemini } from '../services/geminiService';
-import { ChatMessage } from '../types';
+import { ChatMessage, Language } from '../types';
 
-const AIChat: React.FC = () => {
+interface AIChatProps {
+  lang: Language;
+}
+
+const AIChat: React.FC<AIChatProps> = ({ lang }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: 'Welcome to UZ Capital. I am your AI Analyst. How can I assist with our portfolio or investment thesis today?' }
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const hasInitialized = useRef(false);
+
+  // Initialize greeting based on language, but only if it hasn't been touched or if we want to reset.
+  // For simplicity, we will just clear and set the greeting when language changes if the user hasn't chatted yet.
+  useEffect(() => {
+    if (messages.length <= 1) {
+       const greeting = lang === 'en' 
+        ? 'Welcome to UZ Capital. I am your AI Analyst. How can I assist with our portfolio or investment thesis today?'
+        : '歡迎來到 UZ Capital。我是您的 AI 分析師。今天我能為您的投資組合或投資理念提供什麼幫助？';
+       setMessages([{ role: 'model', text: greeting }]);
+    }
+  }, [lang]);
 
   const scrollToBottom = () => {
     if (chatContainerRef.current) {
@@ -124,7 +139,7 @@ const AIChat: React.FC = () => {
                       handleSend();
                     }
                   }}
-                  placeholder="Type your inquiry..."
+                  placeholder={lang === 'en' ? "Type your inquiry..." : "請輸入您的問題..."}
                   className="flex-1 bg-[#1a1d3d] text-white placeholder-white/20 text-sm focus:outline-none px-4 py-3 border border-white/5 focus:border-[#2962ff]/50 transition-colors"
                 />
                 <button

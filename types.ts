@@ -1,3 +1,4 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -18,6 +19,8 @@ export interface ChatMessage {
   text: string;
   isError?: boolean;
 }
+
+export type Language = 'en' | 'zh';
 
 export enum Section {
   HERO = 'hero',

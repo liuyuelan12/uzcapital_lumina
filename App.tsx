@@ -11,61 +11,229 @@ import { Wallet, Globe, Cpu, Network, TrendingUp, Menu, X, Layers, ChevronLeft, 
 import FluidBackground from './components/FluidBackground';
 import GradientText from './components/GlitchText';
 import CustomCursor from './components/CustomCursor';
-import PortfolioCard from './components/ArtistCard'; // We are reusing the component file but logic is updated
+import PortfolioCard from './components/ArtistCard';
 import AIChat from './components/AIChat';
-import { Company } from './types';
+import Hero3DObject from './components/Hero3DObject';
+import { Company, Language } from './types';
 
-// UZ Capital Portfolio
-const PORTFOLIO: Company[] = [
-  { 
-    id: '1', 
-    name: 'Nexus Protocol', 
-    sector: 'DeFi Infrastructure', 
-    stage: 'Series A', 
-    image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop',
-    description: 'A cross-chain liquidity aggregator enabling seamless asset transfers between Layer 1 and Layer 2 networks with zero slippage assurance.'
+// Content Translations
+const TRANSLATIONS = {
+  en: {
+    nav: {
+      portfolio: 'Portfolio',
+      thesis: 'Thesis',
+      connect: 'Connect',
+      partner: 'Partner With Us'
+    },
+    hero: {
+      tagline: ['Asset Management', 'Incubation', 'Advisory'],
+      title: 'UZ CAPITAL',
+      subtitle: 'Architecting the decentralized horizon. We identify, incubate, and scale the protocols defining the next era of the web.'
+    },
+    marquee: [
+      'BLOCKCHAIN INFRASTRUCTURE',
+      'DECENTRALIZED FINANCE',
+      'WEB3 IDENTITY',
+      'DIGITAL ASSETS'
+    ],
+    portfolioSection: {
+      title1: 'Strategic',
+      title2: 'Portfolio',
+      desc: 'We back founders building fundamental layers of the ownership economy. From seed to scale.'
+    },
+    thesisSection: {
+      title1: 'Our',
+      title2: 'THESIS',
+      desc: 'Web3 is not just a technology shift; it is a financial and societal paradigm shift. UZ Capital operates at the intersection of deep tech and finance to accelerate this transition.',
+      features: [
+        { title: 'Strategic Incubation', desc: 'Hands-on operational support from tokenomics design to go-to-market strategy.' },
+        { title: 'Asset Management', desc: 'Data-driven yield strategies across decentralized finance protocols.' },
+        { title: 'Global Ecosystem', desc: 'Bridging the gap between Eastern and Western crypto markets.' }
+      ],
+      statLabel: 'Assets Under Management'
+    },
+    connectSection: {
+      title: 'PARTNER',
+      subtitle: 'Join the UZ Ecosystem',
+      cards: [
+        { name: 'Builders', type: 'Incubation', desc: 'Submit your pitch deck for pre-seed/seed funding.', action: 'Submit Pitch' },
+        { name: 'Investors', type: 'Liquidity', desc: 'For LPs interested in our high-yield DeFi funds.', action: 'Request Access' },
+        { name: 'Partners', type: 'Ecosystem', desc: 'Strategic partnerships and protocol integrations.', action: 'Contact Us' }
+      ],
+      states: {
+        processing: 'Processing...',
+        sent: 'Sent',
+        received: 'Inquiry Received'
+      }
+    },
+    footer: {
+      locations: ['Tokyo', 'Singapore', 'New York'],
+      rights: 'All rights reserved.'
+    },
+    modal: {
+      viewWebsite: 'View Website'
+    }
   },
-  { 
-    id: '2', 
-    name: 'Getaverse', 
-    sector: 'DID Infrastructure', 
-    stage: 'Seed', 
-    image: 'Getaverse-Photoroom.png',
-    description: 'A scalable decentralized identity network enabling cross-chain credit systems and soulbound token utility.'
-  },
-  { 
-    id: '3', 
-    name: 'MetaVault', 
-    sector: 'Asset Management', 
-    stage: 'Seed', 
-    image: 'https://images.unsplash.com/photo-1642104704074-907c0698cbd9?q=80&w=2832&auto=format&fit=crop',
-    description: 'Institutional-grade custody and yield generation platform utilizing AI-driven strategies to optimize returns on dormant crypto assets.'
-  },
-  { 
-    id: '4', 
-    name: 'SeekTiger', 
-    sector: 'GameFi Aggregator', 
-    stage: 'Series B', 
-    image: 'SeekTiger-Photoroom.png',
-    description: 'A DAO-governed digital asset trading platform and GameFi ecosystem promoting decentralized autonomous gaming.'
-  },
-  { 
-    id: '5', 
-    name: 'Zenith Chain', 
-    sector: 'Blockchain Infra', 
-    stage: 'Incubation', 
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2600&auto=format&fit=crop',
-    description: 'Modular blockchain architecture separating consensus, execution, and data availability to power the next generation of dApps.'
-  },
-  { 
-    id: '6', 
-    name: 'Cipher Labs', 
-    sector: 'Security Auditing', 
-    stage: 'Growth', 
-    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2600&auto=format&fit=crop',
-    description: 'AI-powered smart contract auditing firm providing real-time threat monitoring and automated bug bounties for DeFi protocols.'
-  },
-];
+  zh: {
+    nav: {
+      portfolio: '投資組合',
+      thesis: '投資理念',
+      connect: '聯繫我們',
+      partner: '成為合作夥伴'
+    },
+    hero: {
+      tagline: ['資產管理', '項目孵化', '戰略諮詢'],
+      title: 'UZ CAPITAL',
+      subtitle: '構建去中心化的未來。我們發掘、孵化並擴展定義下一代網絡的協議。'
+    },
+    marquee: [
+      '區塊鏈基礎設施',
+      '去中心化金融',
+      'WEB3 數字身份',
+      '數字資產'
+    ],
+    portfolioSection: {
+      title1: '戰略',
+      title2: '投資組合',
+      desc: '我們支持構建所有權經濟基礎層的創始人。從種子輪到規模化。'
+    },
+    thesisSection: {
+      title1: '我們的',
+      title2: '投資理念',
+      desc: 'Web3 不僅僅是技術變革，更是金融和社會的範式轉移。UZ Capital 致力於深科技與金融的交叉領域，加速這一轉型。',
+      features: [
+        { title: '戰略孵化', desc: '從代幣經濟學設計到市場進入策略的全方位運營支持。' },
+        { title: '資產管理', desc: '跨去中心化金融協議的數據驅動收益策略。' },
+        { title: '全球生態', desc: '連接東西方加密市場的橋樑。' }
+      ],
+      statLabel: '資產管理規模'
+    },
+    connectSection: {
+      title: '合作夥伴',
+      subtitle: '加入 UZ 生態系統',
+      cards: [
+        { name: '建設者', type: '項目孵化', desc: '提交您的商業計劃書以獲得種子前/種子輪融資。', action: '提交項目' },
+        { name: '投資者', type: '流動性', desc: '面向對我們高收益 DeFi 基金感興趣的 LP。', action: '申請訪問' },
+        { name: '合作夥伴', type: '生態系統', desc: '戰略合作夥伴關係和協議集成。', action: '聯繫我們' }
+      ],
+      states: {
+        processing: '處理中...',
+        sent: '已發送',
+        received: '已收到諮詢'
+      }
+    },
+    footer: {
+      locations: ['東京', '新加坡', '紐約'],
+      rights: '版權所有。'
+    },
+    modal: {
+      viewWebsite: '訪問網站'
+    }
+  }
+};
+
+const PORTFOLIO_DATA: Record<Language, Company[]> = {
+  en: [
+    { 
+      id: '1', 
+      name: 'Nexus Protocol', 
+      sector: 'DeFi Infrastructure', 
+      stage: 'Series A', 
+      image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop',
+      description: 'A cross-chain liquidity aggregator enabling seamless asset transfers between Layer 1 and Layer 2 networks with zero slippage assurance.'
+    },
+    { 
+      id: '2', 
+      name: 'Getaverse', 
+      sector: 'DID Infrastructure', 
+      stage: 'Seed', 
+      image: 'Getaverse-Photoroom.png',
+      description: 'A scalable decentralized identity network enabling cross-chain credit systems and soulbound token utility.'
+    },
+    { 
+      id: '3', 
+      name: 'MetaVault', 
+      sector: 'Asset Management', 
+      stage: 'Seed', 
+      image: 'https://images.unsplash.com/photo-1642104704074-907c0698cbd9?q=80&w=2832&auto=format&fit=crop',
+      description: 'Institutional-grade custody and yield generation platform utilizing AI-driven strategies to optimize returns on dormant crypto assets.'
+    },
+    { 
+      id: '4', 
+      name: 'SeekTiger', 
+      sector: 'GameFi Aggregator', 
+      stage: 'Series B', 
+      image: 'SeekTiger-Photoroom.png',
+      description: 'A DAO-governed digital asset trading platform and GameFi ecosystem promoting decentralized autonomous gaming.'
+    },
+    { 
+      id: '5', 
+      name: 'Zenith Chain', 
+      sector: 'Blockchain Infra', 
+      stage: 'Incubation', 
+      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2600&auto=format&fit=crop',
+      description: 'Modular blockchain architecture separating consensus, execution, and data availability to power the next generation of dApps.'
+    },
+    { 
+      id: '6', 
+      name: 'Cipher Labs', 
+      sector: 'Security Auditing', 
+      stage: 'Growth', 
+      image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2600&auto=format&fit=crop',
+      description: 'AI-powered smart contract auditing firm providing real-time threat monitoring and automated bug bounties for DeFi protocols.'
+    },
+  ],
+  zh: [
+    { 
+      id: '1', 
+      name: 'Nexus Protocol', 
+      sector: 'DeFi 基礎設施', 
+      stage: 'A輪', 
+      image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop',
+      description: '一個跨鏈流動性聚合器，實現第一層和第二層網絡之間的無縫資產轉移，並提供零滑點保證。'
+    },
+    { 
+      id: '2', 
+      name: 'Getaverse', 
+      sector: 'DID 基礎設施', 
+      stage: '種子輪', 
+      image: 'Getaverse-Photoroom.png',
+      description: '一個可擴展的去中心化身份網絡，支持跨鏈信用體系和靈魂綁定代幣應用。'
+    },
+    { 
+      id: '3', 
+      name: 'MetaVault', 
+      sector: '資產管理', 
+      stage: '種子輪', 
+      image: 'https://images.unsplash.com/photo-1642104704074-907c0698cbd9?q=80&w=2832&auto=format&fit=crop',
+      description: '利用人工智能驅動策略優化閒置加密資產回報的機構級託管和收益生成平台。'
+    },
+    { 
+      id: '4', 
+      name: 'SeekTiger', 
+      sector: 'GameFi 聚合器', 
+      stage: 'B輪', 
+      image: 'SeekTiger-Photoroom.png',
+      description: '一個 DAO 治理的數字資產交易平台和 GameFi 生態系統，旨在推動去中心化自治遊戲的發展。'
+    },
+    { 
+      id: '5', 
+      name: 'Zenith Chain', 
+      sector: '區塊鏈基礎設施', 
+      stage: '孵化中', 
+      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2600&auto=format&fit=crop',
+      description: '分離共識、執行和數據可用性的模塊化區塊鏈架構，為下一代 dApp 提供動力。'
+    },
+    { 
+      id: '6', 
+      name: 'Cipher Labs', 
+      sector: '安全審計', 
+      stage: '成長期', 
+      image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2600&auto=format&fit=crop',
+      description: '人工智能驅動的智能合約審計公司，為 DeFi 協議提供實時威脅監控和自動漏洞賞金。'
+    },
+  ]
+};
 
 const App: React.FC = () => {
   const { scrollYProgress } = useScroll();
@@ -73,9 +241,14 @@ const App: React.FC = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
+  const [lang, setLang] = useState<Language>('en');
   
   const [purchasingIndex, setPurchasingIndex] = useState<number | null>(null);
   const [purchasedIndex, setPurchasedIndex] = useState<number | null>(null);
+
+  // Derived content based on language
+  const t = TRANSLATIONS[lang];
+  const portfolioList = PORTFOLIO_DATA[lang];
 
   // Handle keyboard navigation for company modal
   useEffect(() => {
@@ -112,58 +285,97 @@ const App: React.FC = () => {
     }
   };
 
+  const toggleLanguage = () => {
+    setLang(prev => prev === 'en' ? 'zh' : 'en');
+  };
+
   const navigateCompany = (direction: 'next' | 'prev') => {
     if (!selectedCompany) return;
-    const currentIndex = PORTFOLIO.findIndex(c => c.id === selectedCompany.id);
+    const currentIndex = portfolioList.findIndex(c => c.id === selectedCompany.id);
     let nextIndex;
     if (direction === 'next') {
-      nextIndex = (currentIndex + 1) % PORTFOLIO.length;
+      nextIndex = (currentIndex + 1) % portfolioList.length;
     } else {
-      nextIndex = (currentIndex - 1 + PORTFOLIO.length) % PORTFOLIO.length;
+      nextIndex = (currentIndex - 1 + portfolioList.length) % portfolioList.length;
     }
-    setSelectedCompany(PORTFOLIO[nextIndex]);
+    setSelectedCompany(portfolioList[nextIndex]);
   };
   
   return (
     <div className="relative min-h-screen text-white selection:bg-[#00f0ff] selection:text-black cursor-auto md:cursor-none overflow-x-hidden">
       <CustomCursor />
       <FluidBackground />
-      <AIChat />
+      <AIChat lang={lang} />
       
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 md:px-8 py-6 mix-blend-difference">
-        <div className="font-heading text-xl md:text-2xl font-bold tracking-tighter text-white cursor-default z-50 flex items-center gap-2">
-            <img src="UZ CAPITAL_Photoroom.png" alt="UZ CAPITAL" className="h-10 md:h-12 w-auto object-contain" />
+        <div className="font-heading text-xl md:text-2xl font-bold tracking-tighter text-white cursor-default z-50 flex items-center gap-3">
+            <img src="logo.png" alt="UZ CAPITAL" className="h-10 md:h-12 w-auto object-contain" />
+            <span>UZ CAPITAL</span>
         </div>
         
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-10 text-xs font-bold tracking-[0.2em] uppercase">
-          {['Portfolio', 'Thesis', 'Connect'].map((item) => (
+        <div className="hidden md:flex items-center gap-8">
+          <div className="flex gap-10 text-xs font-bold tracking-[0.2em] uppercase">
             <button 
-              key={item} 
-              onClick={() => scrollToSection(item.toLowerCase())}
+              onClick={() => scrollToSection('portfolio')}
               className="hover:text-[#00f0ff] transition-colors text-white cursor-pointer bg-transparent border-none"
               data-hover="true"
             >
-              {item}
+              {t.nav.portfolio}
             </button>
-          ))}
+            <button 
+              onClick={() => scrollToSection('thesis')}
+              className="hover:text-[#00f0ff] transition-colors text-white cursor-pointer bg-transparent border-none"
+              data-hover="true"
+            >
+              {t.nav.thesis}
+            </button>
+            <button 
+              onClick={() => scrollToSection('connect')}
+              className="hover:text-[#00f0ff] transition-colors text-white cursor-pointer bg-transparent border-none"
+              data-hover="true"
+            >
+              {t.nav.connect}
+            </button>
+          </div>
+
+          {/* Language Toggle */}
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase hover:text-[#00f0ff] transition-colors cursor-pointer bg-transparent border border-white/30 px-3 py-1.5 rounded-sm"
+            data-hover="true"
+          >
+            <Globe className="w-3 h-3" />
+            {lang === 'en' ? '繁体中文' : 'English'}
+          </button>
+
+          <button 
+            onClick={() => scrollToSection('connect')}
+            className="border border-white px-8 py-3 text-xs font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-all duration-300 text-white cursor-pointer bg-transparent"
+            data-hover="true"
+          >
+            {t.nav.partner}
+          </button>
         </div>
-        <button 
-          onClick={() => scrollToSection('connect')}
-          className="hidden md:inline-block border border-white px-8 py-3 text-xs font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-all duration-300 text-white cursor-pointer bg-transparent"
-          data-hover="true"
-        >
-          Partner With Us
-        </button>
 
         {/* Mobile Menu Toggle */}
-        <button 
-          className="md:hidden text-white z-50 relative w-10 h-10 flex items-center justify-center"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-           {mobileMenuOpen ? <X /> : <Menu />}
-        </button>
+        <div className="flex md:hidden items-center gap-4 z-50">
+           {/* Mobile Lang Toggle */}
+           <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1 text-[10px] font-bold tracking-widest uppercase hover:text-[#00f0ff] transition-colors cursor-pointer bg-transparent border border-white/30 px-2 py-1 rounded-sm"
+          >
+            {lang === 'en' ? '繁' : 'EN'}
+          </button>
+
+          <button 
+            className="text-white relative w-10 h-10 flex items-center justify-center"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu Overlay */}
@@ -175,20 +387,30 @@ const App: React.FC = () => {
             exit={{ opacity: 0, y: -20 }}
             className="fixed inset-0 z-30 bg-[#050614]/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden"
           >
-            {['Portfolio', 'Thesis', 'Connect'].map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-3xl font-heading font-bold text-white hover:text-[#00f0ff] transition-colors uppercase bg-transparent border-none"
-              >
-                {item}
-              </button>
-            ))}
+            <button
+              onClick={() => scrollToSection('portfolio')}
+              className="text-3xl font-heading font-bold text-white hover:text-[#00f0ff] transition-colors uppercase bg-transparent border-none"
+            >
+              {t.nav.portfolio}
+            </button>
+             <button
+              onClick={() => scrollToSection('thesis')}
+              className="text-3xl font-heading font-bold text-white hover:text-[#00f0ff] transition-colors uppercase bg-transparent border-none"
+            >
+              {t.nav.thesis}
+            </button>
+             <button
+              onClick={() => scrollToSection('connect')}
+              className="text-3xl font-heading font-bold text-white hover:text-[#00f0ff] transition-colors uppercase bg-transparent border-none"
+            >
+              {t.nav.connect}
+            </button>
+            
             <button 
               onClick={() => scrollToSection('connect')}
               className="mt-8 border border-[#00f0ff] text-[#00f0ff] px-10 py-4 text-sm font-bold tracking-widest uppercase bg-transparent hover:bg-[#00f0ff] hover:text-black transition-colors"
             >
-              Partner With Us
+              {t.nav.partner}
             </button>
           </motion.div>
         )}
@@ -196,6 +418,9 @@ const App: React.FC = () => {
 
       {/* HERO SECTION */}
       <header className="relative h-[100svh] min-h-[600px] flex flex-col items-center justify-center overflow-hidden px-4">
+        {/* 3D Background Object */}
+        <Hero3DObject />
+        
         <motion.div 
           style={{ y, opacity }}
           className="z-10 text-center flex flex-col items-center w-full max-w-6xl pb-24 md:pb-20"
@@ -207,17 +432,17 @@ const App: React.FC = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="flex items-center gap-3 md:gap-6 text-[10px] md:text-sm font-mono text-[#00f0ff] tracking-[0.3em] uppercase mb-6 bg-[#00f0ff]/10 border border-[#00f0ff]/20 px-6 py-2 backdrop-blur-sm"
           >
-            <span>Asset Management</span>
+            <span>{t.hero.tagline[0]}</span>
             <span className="w-1 h-1 bg-white rounded-full"/>
-            <span>Incubation</span>
+            <span>{t.hero.tagline[1]}</span>
             <span className="w-1 h-1 bg-white rounded-full"/>
-            <span>Advisory</span>
+            <span>{t.hero.tagline[2]}</span>
           </motion.div>
 
           {/* Main Title */}
           <div className="relative w-full flex justify-center items-center">
             <GradientText 
-              text="UZ CAPITAL" 
+              text={t.hero.title} 
               as="h1" 
               className="text-[12vw] md:text-[11vw] leading-[0.9] font-black tracking-tighter text-center" 
             />
@@ -236,7 +461,7 @@ const App: React.FC = () => {
             transition={{ delay: 0.8, duration: 1 }}
             className="text-base md:text-xl font-light max-w-xl mx-auto text-gray-400 leading-relaxed px-4 tracking-wide"
           >
-            Architecting the decentralized horizon. We identify, incubate, and scale the protocols defining the next era of the web.
+            {t.hero.subtitle}
           </motion.p>
         </motion.div>
 
@@ -251,18 +476,11 @@ const App: React.FC = () => {
               <div key={key} className="flex whitespace-nowrap shrink-0 items-center">
                 {[...Array(4)].map((_, i) => (
                   <div key={i} className="flex items-center">
-                    <span className="text-xl md:text-2xl font-heading font-bold px-8 text-gray-500 flex items-center gap-4">
-                      BLOCKCHAIN INFRASTRUCTURE <span className="text-[#00f0ff]">▲</span>
-                    </span>
-                    <span className="text-xl md:text-2xl font-heading font-bold px-8 text-gray-500 flex items-center gap-4">
-                      DECENTRALIZED FINANCE <span className="text-[#00f0ff]">▲</span>
-                    </span>
-                    <span className="text-xl md:text-2xl font-heading font-bold px-8 text-gray-500 flex items-center gap-4">
-                       WEB3 IDENTITY <span className="text-[#00f0ff]">▲</span>
-                    </span>
-                     <span className="text-xl md:text-2xl font-heading font-bold px-8 text-gray-500 flex items-center gap-4">
-                       DIGITAL ASSETS <span className="text-[#00f0ff]">▲</span>
-                    </span>
+                    {t.marquee.map((text, index) => (
+                      <span key={index} className="text-xl md:text-2xl font-heading font-bold px-8 text-gray-500 flex items-center gap-4">
+                        {text} <span className="text-[#00f0ff]">▲</span>
+                      </span>
+                    ))}
                   </div>
                 ))}
               </div>
@@ -276,16 +494,16 @@ const App: React.FC = () => {
         <div className="max-w-[1600px] mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16 px-4 border-l-2 border-[#2962ff] pl-6">
              <h2 className="text-4xl md:text-7xl font-heading font-bold uppercase leading-[0.9] text-white">
-              Strategic <br/> 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] to-[#2962ff]">Portfolio</span>
+              {t.portfolioSection.title1} <br/> 
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] to-[#2962ff]">{t.portfolioSection.title2}</span>
             </h2>
             <p className="text-gray-400 mt-4 md:mt-0 max-w-md text-sm md:text-base">
-              We back founders building fundamental layers of the ownership economy. From seed to scale.
+              {t.portfolioSection.desc}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-white/10 bg-[#050614]/50 backdrop-blur-sm">
-            {PORTFOLIO.map((company) => (
+            {portfolioList.map((company) => (
               <PortfolioCard key={company.id} company={company} onClick={() => setSelectedCompany(company)} />
             ))}
           </div>
@@ -301,31 +519,31 @@ const App: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-center">
             <div className="lg:col-span-5 order-2 lg:order-1">
               <h2 className="text-3xl md:text-6xl font-heading font-bold mb-6 md:mb-8 leading-tight">
-                Our <br/> <GradientText text="THESIS" className="text-4xl md:text-7xl" />
+                {t.thesisSection.title1} <br/> <GradientText text={t.thesisSection.title2} className="text-4xl md:text-7xl" />
               </h2>
               <p className="text-lg text-gray-400 mb-8 md:mb-12 font-light leading-relaxed">
-                Web3 is not just a technology shift; it is a financial and societal paradigm shift. UZ Capital operates at the intersection of deep tech and finance to accelerate this transition.
+                {t.thesisSection.desc}
               </p>
               
               <div className="space-y-6 md:space-y-8">
-                {[
-                  { icon: Network, title: 'Strategic Incubation', desc: 'Hands-on operational support from tokenomics design to go-to-market strategy.' },
-                  { icon: TrendingUp, title: 'Asset Management', desc: 'Data-driven yield strategies across decentralized finance protocols.' },
-                  { icon: Globe, title: 'Global Ecosystem', desc: 'Bridging the gap between Eastern and Western crypto markets.' },
-                ].map((feature, i) => (
-                  <div
-                    key={i} 
-                    className="flex items-start gap-6 group"
-                  >
-                    <div className="p-4 rounded-none border border-[#2962ff]/30 bg-[#2962ff]/5 group-hover:bg-[#2962ff]/20 transition-colors">
-                      <feature.icon className="w-6 h-6 text-[#00f0ff]" />
+                {t.thesisSection.features.map((feature, i) => {
+                   const icons = [Network, TrendingUp, Globe];
+                   const Icon = icons[i];
+                   return (
+                    <div
+                      key={i} 
+                      className="flex items-start gap-6 group"
+                    >
+                      <div className="p-4 rounded-none border border-[#2962ff]/30 bg-[#2962ff]/5 group-hover:bg-[#2962ff]/20 transition-colors">
+                        <Icon className="w-6 h-6 text-[#00f0ff]" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg md:text-xl font-bold mb-1 md:mb-2 font-heading text-white">{feature.title}</h4>
+                        <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">{feature.desc}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-lg md:text-xl font-bold mb-1 md:mb-2 font-heading text-white">{feature.title}</h4>
-                      <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">{feature.desc}</p>
-                    </div>
-                  </div>
-                ))}
+                   );
+                })}
               </div>
             </div>
 
@@ -344,7 +562,7 @@ const App: React.FC = () => {
                     $50M+
                   </div>
                   <div className="text-sm md:text-base font-mono tracking-widest uppercase mt-2 text-[#00f0ff]">
-                    Assets Under Management
+                    {t.thesisSection.statLabel}
                   </div>
                 </div>
               </div>
@@ -358,22 +576,20 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 md:mb-20">
              <h2 className="text-5xl md:text-9xl font-heading font-bold opacity-10 text-white select-none">
-               PARTNER
+               {t.connectSection.title}
              </h2>
              <p className="text-[#2962ff] font-mono uppercase tracking-[0.3em] -mt-4 md:-mt-10 relative z-10 text-sm md:text-base">
-               Join the UZ Ecosystem
+               {t.connectSection.subtitle}
              </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { name: 'Builders', type: 'Incubation', desc: 'Submit your pitch deck for pre-seed/seed funding.', action: 'Submit Pitch', icon: Cpu },
-              { name: 'Investors', type: 'Liquidity', desc: 'For LPs interested in our high-yield DeFi funds.', action: 'Request Access', icon: Wallet },
-              { name: 'Partners', type: 'Ecosystem', desc: 'Strategic partnerships and protocol integrations.', action: 'Contact Us', icon: Network },
-            ].map((tier, i) => {
+            {t.connectSection.cards.map((tier, i) => {
               const isPurchasing = purchasingIndex === i;
               const isPurchased = purchasedIndex === i;
               const isDisabled = (purchasingIndex !== null) || (purchasedIndex !== null);
+              const icons = [Cpu, Wallet, Network];
+              const Icon = icons[i];
 
               return (
                 <motion.div
@@ -385,7 +601,7 @@ const App: React.FC = () => {
                   <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#2962ff] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   
                   <div className="flex-1">
-                    <tier.icon className="w-10 h-10 text-[#2962ff] mb-6" />
+                    <Icon className="w-10 h-10 text-[#2962ff] mb-6" />
                     <h3 className="text-2xl md:text-3xl font-heading font-bold mb-2 text-white">{tier.name}</h3>
                     <div className="text-sm font-mono text-[#00f0ff] mb-8 tracking-widest uppercase">
                       {tier.type}
@@ -409,7 +625,7 @@ const App: React.FC = () => {
                       }`}
                   >
                     <span className="relative z-10">
-                      {isPurchasing ? 'Processing...' : isPurchased ? 'Sent' : tier.action}
+                      {isPurchasing ? t.connectSection.states.processing : isPurchased ? t.connectSection.states.sent : tier.action}
                     </span>
                   </button>
                   
@@ -419,7 +635,7 @@ const App: React.FC = () => {
                       animate={{ opacity: 1, y: 0 }}
                       className="text-[10px] text-center mt-3 text-gray-500 font-mono uppercase"
                     >
-                      Inquiry Received
+                      {t.connectSection.states.received}
                     </motion.p>
                   )}
                 </motion.div>
@@ -433,13 +649,14 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
           <div>
              <div className="flex items-center gap-2 mb-4">
-                <img src="UZ CAPITAL_Photoroom.png" alt="UZ CAPITAL" className="h-12 w-auto object-contain" />
+                <img src="logo.png" alt="UZ CAPITAL" className="h-12 w-auto object-contain" />
+                <span className="font-heading text-xl font-bold tracking-tighter text-white">UZ CAPITAL</span>
              </div>
              <div className="flex gap-2 text-xs font-mono text-gray-500 uppercase tracking-widest">
-               <span>Tokyo</span> • <span>Singapore</span> • <span>New York</span>
+               <span>{t.footer.locations[0]}</span> • <span>{t.footer.locations[1]}</span> • <span>{t.footer.locations[2]}</span>
              </div>
              <div className="mt-2 text-xs text-gray-600">
-               &copy; 2025 UZ Capital Ventures. All rights reserved.
+               &copy; 2025 UZ Capital Ventures. {t.footer.rights}
              </div>
           </div>
           
@@ -545,7 +762,7 @@ const App: React.FC = () => {
                   </p>
                   
                    <button className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white hover:text-[#00f0ff] transition-colors group" data-hover="true">
-                    View Website <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    {t.modal.viewWebsite} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </motion.div>
               </div>
