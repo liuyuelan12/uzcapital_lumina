@@ -1,3 +1,4 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -15,6 +16,9 @@ interface PortfolioCardProps {
 }
 
 const PortfolioCard: React.FC<PortfolioCardProps> = ({ company, onClick }) => {
+  // Check if the image is one of the Photoroom logos/cutouts
+  const isLogo = company.image.includes('Photoroom');
+
   return (
     <motion.div
       className="group relative h-[400px] md:h-[500px] w-full overflow-hidden border-b md:border-r border-white/10 bg-black cursor-pointer"
@@ -30,7 +34,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ company, onClick }) => {
         <motion.img 
           src={company.image} 
           alt={company.name} 
-          className="h-full w-full object-cover grayscale will-change-transform"
+          className={`h-full w-full ${isLogo ? 'object-contain p-8' : 'object-cover'} grayscale will-change-transform`}
           variants={{
             rest: { scale: 1, opacity: 0.4, filter: 'grayscale(100%) blur(2px)' },
             hover: { scale: 1.05, opacity: 0.8, filter: 'grayscale(0%) blur(0px)' }

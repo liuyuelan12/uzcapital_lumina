@@ -1,3 +1,4 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -26,11 +27,11 @@ const PORTFOLIO: Company[] = [
   },
   { 
     id: '2', 
-    name: 'EtherScale', 
-    sector: 'L2 Scaling', 
+    name: 'Getaverse', 
+    sector: 'DID Infrastructure', 
     stage: 'Seed', 
-    image: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2832&auto=format&fit=crop',
-    description: 'ZK-Rollup solution designed for high-frequency trading platforms, reducing gas fees by 99% while inheriting mainnet security.'
+    image: 'Getaverse-Photoroom.png',
+    description: 'A scalable decentralized identity network enabling cross-chain credit systems and soulbound token utility.'
   },
   { 
     id: '3', 
@@ -42,11 +43,11 @@ const PORTFOLIO: Company[] = [
   },
   { 
     id: '4', 
-    name: 'BlockIdentity', 
-    sector: 'Digital Identity', 
+    name: 'SeekTiger', 
+    sector: 'GameFi Aggregator', 
     stage: 'Series B', 
-    image: 'https://images.unsplash.com/photo-1639322537504-6427a16b0a28?q=80&w=2832&auto=format&fit=crop',
-    description: 'Sovereign decentralized identity (DID) protocol allowing users to own their data across Web3 applications without centralized intermediaries.'
+    image: 'SeekTiger-Photoroom.png',
+    description: 'A DAO-governed digital asset trading platform and GameFi ecosystem promoting decentralized autonomous gaming.'
   },
   { 
     id: '5', 
@@ -132,10 +133,7 @@ const App: React.FC = () => {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 md:px-8 py-6 mix-blend-difference">
         <div className="font-heading text-xl md:text-2xl font-bold tracking-tighter text-white cursor-default z-50 flex items-center gap-2">
-            <div className="w-8 h-8 border-2 border-white flex items-center justify-center">
-                <div className="w-4 h-4 bg-white rounded-none transform rotate-45"></div>
-            </div>
-            UZ CAPITAL
+            <img src="UZ CAPITAL_Photoroom.png" alt="UZ CAPITAL" className="h-10 md:h-12 w-auto object-contain" />
         </div>
         
         {/* Desktop Menu */}
@@ -435,10 +433,7 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
           <div>
              <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-6 border border-white flex items-center justify-center">
-                    <div className="w-3 h-3 bg-white rounded-none transform rotate-45"></div>
-                </div>
-                <div className="font-heading text-2xl font-bold tracking-tighter text-white">UZ CAPITAL</div>
+                <img src="UZ CAPITAL_Photoroom.png" alt="UZ CAPITAL" className="h-12 w-auto object-contain" />
              </div>
              <div className="flex gap-2 text-xs font-mono text-gray-500 uppercase tracking-widest">
                <span>Tokyo</span> • <span>Singapore</span> • <span>New York</span>
@@ -516,7 +511,7 @@ const App: React.FC = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.4 }}
-                    className="absolute inset-0 w-full h-full object-cover grayscale"
+                    className={`absolute inset-0 w-full h-full ${selectedCompany.image.includes('Photoroom') ? 'object-contain p-8 bg-black/50' : 'object-cover'} grayscale`}
                   />
                 </AnimatePresence>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0f1126] via-transparent to-transparent md:bg-gradient-to-r" />
