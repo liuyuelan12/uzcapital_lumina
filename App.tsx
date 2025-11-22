@@ -147,7 +147,7 @@ const PORTFOLIO_DATA: Record<Language, Company[]> = {
       name: 'Getaverse', 
       sector: 'DID Infrastructure', 
       stage: 'Seed', 
-      image: 'Getaverse-Photoroom.png',
+      image: '/Getaverse-Photoroom.png',
       description: 'A scalable decentralized identity network enabling cross-chain credit systems and soulbound token utility.'
     },
     { 
@@ -163,7 +163,7 @@ const PORTFOLIO_DATA: Record<Language, Company[]> = {
       name: 'SeekTiger', 
       sector: 'GameFi Aggregator', 
       stage: 'Series B', 
-      image: 'SeekTiger-Photoroom.png',
+      image: '/SeekTiger-Photoroom.png',
       description: 'A DAO-governed digital asset trading platform and GameFi ecosystem promoting decentralized autonomous gaming.'
     },
     { 
@@ -197,7 +197,7 @@ const PORTFOLIO_DATA: Record<Language, Company[]> = {
       name: 'Getaverse', 
       sector: 'DID 基礎設施', 
       stage: '種子輪', 
-      image: 'Getaverse-Photoroom.png',
+      image: '/Getaverse-Photoroom.png',
       description: '一個可擴展的去中心化身份網絡，支持跨鏈信用體系和靈魂綁定代幣應用。'
     },
     { 
@@ -213,8 +213,8 @@ const PORTFOLIO_DATA: Record<Language, Company[]> = {
       name: 'SeekTiger', 
       sector: 'GameFi 聚合器', 
       stage: 'B輪', 
-      image: 'SeekTiger-Photoroom.png',
-      description: '一個 DAO 治理的數字資產交易平台和 GameFi 生態系統，旨在推動去中心化自治遊戲的發展。'
+      image: '/SeekTiger-Photoroom.png',
+      description: 'DAO 治理的數字資產交易平台和 GameFi 生態系統，推動去中心化自治遊戲。'
     },
     { 
       id: '5', 
