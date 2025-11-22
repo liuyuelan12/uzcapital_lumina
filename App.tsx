@@ -661,7 +661,7 @@ const App: React.FC = () => {
           </div>
           
           <div className="flex gap-8 flex-wrap">
-            <a href="https://x.com/GoogleAIStudio" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00f0ff] font-bold uppercase text-xs tracking-widest transition-colors cursor-pointer" data-hover="true">
+            <a href="https://x.com/uz_capital" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00f0ff] font-bold uppercase text-xs tracking-widest transition-colors cursor-pointer" data-hover="true">
               Twitter / X
             </a>
             <a href="#" className="text-gray-400 hover:text-[#00f0ff] font-bold uppercase text-xs tracking-widest transition-colors cursor-pointer" data-hover="true">
