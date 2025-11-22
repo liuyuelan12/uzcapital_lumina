@@ -139,7 +139,7 @@ const PORTFOLIO_DATA: Record<Language, Company[]> = {
       name: 'Nexus Protocol', 
       sector: 'DeFi Infrastructure', 
       stage: 'Series A', 
-      image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop',
+      image: '/nexus.jpeg',
       description: 'A cross-chain liquidity aggregator enabling seamless asset transfers between Layer 1 and Layer 2 networks with zero slippage assurance.'
     },
     { 
@@ -155,7 +155,7 @@ const PORTFOLIO_DATA: Record<Language, Company[]> = {
       name: 'MetaVault', 
       sector: 'Asset Management', 
       stage: 'Seed', 
-      image: 'https://images.unsplash.com/photo-1642104704074-907c0698cbd9?q=80&w=2832&auto=format&fit=crop',
+      image: '/metavault.jpeg',
       description: 'Institutional-grade custody and yield generation platform utilizing AI-driven strategies to optimize returns on dormant crypto assets.'
     },
     { 
@@ -171,7 +171,7 @@ const PORTFOLIO_DATA: Record<Language, Company[]> = {
       name: 'Zenith Chain', 
       sector: 'Blockchain Infra', 
       stage: 'Incubation', 
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2600&auto=format&fit=crop',
+      image: '/zenith.jpeg',
       description: 'Modular blockchain architecture separating consensus, execution, and data availability to power the next generation of dApps.'
     },
     { 
@@ -179,7 +179,7 @@ const PORTFOLIO_DATA: Record<Language, Company[]> = {
       name: 'Cipher Labs', 
       sector: 'Security Auditing', 
       stage: 'Growth', 
-      image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2600&auto=format&fit=crop',
+      image: '/cipher.jpeg',
       description: 'AI-powered smart contract auditing firm providing real-time threat monitoring and automated bug bounties for DeFi protocols.'
     },
   ],
@@ -189,7 +189,7 @@ const PORTFOLIO_DATA: Record<Language, Company[]> = {
       name: 'Nexus Protocol', 
       sector: 'DeFi 基礎設施', 
       stage: 'A輪', 
-      image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop',
+      image: '/nexus.jpeg',
       description: '一個跨鏈流動性聚合器，實現第一層和第二層網絡之間的無縫資產轉移，並提供零滑點保證。'
     },
     { 
@@ -205,7 +205,7 @@ const PORTFOLIO_DATA: Record<Language, Company[]> = {
       name: 'MetaVault', 
       sector: '資產管理', 
       stage: '種子輪', 
-      image: 'https://images.unsplash.com/photo-1642104704074-907c0698cbd9?q=80&w=2832&auto=format&fit=crop',
+      image: '/metavault.jpeg',
       description: '利用人工智能驅動策略優化閒置加密資產回報的機構級託管和收益生成平台。'
     },
     { 
@@ -221,7 +221,7 @@ const PORTFOLIO_DATA: Record<Language, Company[]> = {
       name: 'Zenith Chain', 
       sector: '區塊鏈基礎設施', 
       stage: '孵化中', 
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2600&auto=format&fit=crop',
+      image: '/zenith.jpeg',
       description: '分離共識、執行和數據可用性的模塊化區塊鏈架構，為下一代 dApp 提供動力。'
     },
     { 
@@ -229,7 +229,7 @@ const PORTFOLIO_DATA: Record<Language, Company[]> = {
       name: 'Cipher Labs', 
       sector: '安全審計', 
       stage: '成長期', 
-      image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2600&auto=format&fit=crop',
+      image: '/cipher.jpeg',
       description: '人工智能驅動的智能合約審計公司，為 DeFi 協議提供實時威脅監控和自動漏洞賞金。'
     },
   ]
@@ -551,7 +551,7 @@ const App: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-[#2962ff] to-[#6200ea] rounded-none translate-x-4 translate-y-4 opacity-20" />
               <div className="relative h-full w-full bg-[#050614] border border-white/10 group overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1644088379091-d574269d422f?q=80&w=2893&auto=format&fit=crop" 
+                  src="/data-center.avif" 
                   alt="Data Center" 
                   className="h-full w-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-[1.5s] grayscale group-hover:grayscale-0" 
                 />
