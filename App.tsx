@@ -134,101 +134,101 @@ const TRANSLATIONS = {
 
 const PORTFOLIO_DATA: Record<Language, Company[]> = {
   en: [
-    { 
-      id: '1', 
-      name: 'Nexus Protocol', 
-      sector: 'DeFi Infrastructure', 
-      stage: 'Series A', 
+    {
+      id: '1',
+      name: 'Nexus Protocol',
+      sector: 'DeFi Infrastructure',
+      stage: 'Series A',
       image: '/nexus.jpeg',
       description: 'A cross-chain liquidity aggregator enabling seamless asset transfers between Layer 1 and Layer 2 networks with zero slippage assurance.'
     },
-    { 
-      id: '2', 
-      name: 'Getaverse', 
-      sector: 'DID Infrastructure', 
-      stage: 'Seed', 
+    {
+      id: '2',
+      name: 'Getaverse',
+      sector: 'DID Infrastructure',
+      stage: 'Seed',
       image: '/Getaverse-Photoroom.png',
       description: 'A scalable decentralized identity network enabling cross-chain credit systems and soulbound token utility.'
     },
-    { 
-      id: '3', 
-      name: 'MetaVault', 
-      sector: 'Asset Management', 
-      stage: 'Seed', 
+    {
+      id: '3',
+      name: 'MetaVault',
+      sector: 'Asset Management',
+      stage: 'Seed',
       image: '/metavault.jpeg',
       description: 'Institutional-grade custody and yield generation platform utilizing AI-driven strategies to optimize returns on dormant crypto assets.'
     },
-    { 
-      id: '4', 
-      name: 'SeekTiger', 
-      sector: 'GameFi Aggregator', 
-      stage: 'Series B', 
+    {
+      id: '4',
+      name: 'SeekTiger',
+      sector: 'GameFi Aggregator',
+      stage: 'Series B',
       image: '/SeekTiger-Photoroom.png',
       description: 'A DAO-governed digital asset trading platform and GameFi ecosystem promoting decentralized autonomous gaming.'
     },
-    { 
-      id: '5', 
-      name: 'Zenith Chain', 
-      sector: 'Blockchain Infra', 
-      stage: 'Incubation', 
+    {
+      id: '5',
+      name: 'Zenith Chain',
+      sector: 'Blockchain Infra',
+      stage: 'Incubation',
       image: '/zenith.jpeg',
       description: 'Modular blockchain architecture separating consensus, execution, and data availability to power the next generation of dApps.'
     },
-    { 
-      id: '6', 
-      name: 'Cipher Labs', 
-      sector: 'Security Auditing', 
-      stage: 'Growth', 
+    {
+      id: '6',
+      name: 'Cipher Labs',
+      sector: 'Security Auditing',
+      stage: 'Growth',
       image: '/cipher.jpeg',
       description: 'AI-powered smart contract auditing firm providing real-time threat monitoring and automated bug bounties for DeFi protocols.'
     },
   ],
   zh: [
-    { 
-      id: '1', 
-      name: 'Nexus Protocol', 
-      sector: 'DeFi 基礎設施', 
-      stage: 'A輪', 
+    {
+      id: '1',
+      name: 'Nexus Protocol',
+      sector: 'DeFi 基礎設施',
+      stage: 'A輪',
       image: '/nexus.jpeg',
       description: '一個跨鏈流動性聚合器，實現第一層和第二層網絡之間的無縫資產轉移，並提供零滑點保證。'
     },
-    { 
-      id: '2', 
-      name: 'Getaverse', 
-      sector: 'DID 基礎設施', 
-      stage: '種子輪', 
+    {
+      id: '2',
+      name: 'Getaverse',
+      sector: 'DID 基礎設施',
+      stage: '種子輪',
       image: '/Getaverse-Photoroom.png',
       description: '一個可擴展的去中心化身份網絡，支持跨鏈信用體系和靈魂綁定代幣應用。'
     },
-    { 
-      id: '3', 
-      name: 'MetaVault', 
-      sector: '資產管理', 
-      stage: '種子輪', 
+    {
+      id: '3',
+      name: 'MetaVault',
+      sector: '資產管理',
+      stage: '種子輪',
       image: '/metavault.jpeg',
       description: '利用人工智能驅動策略優化閒置加密資產回報的機構級託管和收益生成平台。'
     },
-    { 
-      id: '4', 
-      name: 'SeekTiger', 
-      sector: 'GameFi 聚合器', 
-      stage: 'B輪', 
+    {
+      id: '4',
+      name: 'SeekTiger',
+      sector: 'GameFi 聚合器',
+      stage: 'B輪',
       image: '/SeekTiger-Photoroom.png',
       description: 'DAO 治理的數字資產交易平台和 GameFi 生態系統，推動去中心化自治遊戲。'
     },
-    { 
-      id: '5', 
-      name: 'Zenith Chain', 
-      sector: '區塊鏈基礎設施', 
-      stage: '孵化中', 
+    {
+      id: '5',
+      name: 'Zenith Chain',
+      sector: '區塊鏈基礎設施',
+      stage: '孵化中',
       image: '/zenith.jpeg',
       description: '分離共識、執行和數據可用性的模塊化區塊鏈架構，為下一代 dApp 提供動力。'
     },
-    { 
-      id: '6', 
-      name: 'Cipher Labs', 
-      sector: '安全審計', 
-      stage: '成長期', 
+    {
+      id: '6',
+      name: 'Cipher Labs',
+      sector: '安全審計',
+      stage: '成長期',
       image: '/cipher.jpeg',
       description: '人工智能驅動的智能合約審計公司，為 DeFi 協議提供實時威脅監控和自動漏洞賞金。'
     },
@@ -242,7 +242,7 @@ const App: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [lang, setLang] = useState<Language>('en');
-  
+
   const [purchasingIndex, setPurchasingIndex] = useState<number | null>(null);
   const [purchasedIndex, setPurchasedIndex] = useState<number | null>(null);
 
@@ -300,38 +300,38 @@ const App: React.FC = () => {
     }
     setSelectedCompany(portfolioList[nextIndex]);
   };
-  
+
   return (
     <div className="relative min-h-screen text-white selection:bg-[#00f0ff] selection:text-black cursor-auto md:cursor-none overflow-x-hidden">
       <CustomCursor />
       <FluidBackground />
       <AIChat lang={lang} />
-      
+
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 md:px-8 py-6 mix-blend-difference">
         <div className="font-heading text-xl md:text-2xl font-bold tracking-tighter text-white cursor-default z-50 flex items-center gap-3">
-            <img src="logo.png" alt="UZ CAPITAL" className="h-10 md:h-12 w-auto object-contain" />
-            <span>UZ CAPITAL</span>
+          <img src="logo.png" alt="UZ CAPITAL" className="h-10 md:h-12 w-auto object-contain" />
+          <span>UZ CAPITAL</span>
         </div>
-        
+
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           <div className="flex gap-10 text-xs font-bold tracking-[0.2em] uppercase">
-            <button 
+            <button
               onClick={() => scrollToSection('portfolio')}
               className="hover:text-[#00f0ff] transition-colors text-white cursor-pointer bg-transparent border-none"
               data-hover="true"
             >
               {t.nav.portfolio}
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('thesis')}
               className="hover:text-[#00f0ff] transition-colors text-white cursor-pointer bg-transparent border-none"
               data-hover="true"
             >
               {t.nav.thesis}
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('connect')}
               className="hover:text-[#00f0ff] transition-colors text-white cursor-pointer bg-transparent border-none"
               data-hover="true"
@@ -350,7 +350,7 @@ const App: React.FC = () => {
             {lang === 'en' ? '繁体中文' : 'English'}
           </button>
 
-          <button 
+          <button
             onClick={() => scrollToSection('connect')}
             className="border border-white px-8 py-3 text-xs font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-all duration-300 text-white cursor-pointer bg-transparent"
             data-hover="true"
@@ -361,15 +361,15 @@ const App: React.FC = () => {
 
         {/* Mobile Menu Toggle */}
         <div className="flex md:hidden items-center gap-4 z-50">
-           {/* Mobile Lang Toggle */}
-           <button
+          {/* Mobile Lang Toggle */}
+          <button
             onClick={toggleLanguage}
             className="flex items-center gap-1 text-[10px] font-bold tracking-widest uppercase hover:text-[#00f0ff] transition-colors cursor-pointer bg-transparent border border-white/30 px-2 py-1 rounded-sm"
           >
             {lang === 'en' ? '繁' : 'EN'}
           </button>
 
-          <button 
+          <button
             className="text-white relative w-10 h-10 flex items-center justify-center"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -393,20 +393,20 @@ const App: React.FC = () => {
             >
               {t.nav.portfolio}
             </button>
-             <button
+            <button
               onClick={() => scrollToSection('thesis')}
               className="text-3xl font-heading font-bold text-white hover:text-[#00f0ff] transition-colors uppercase bg-transparent border-none"
             >
               {t.nav.thesis}
             </button>
-             <button
+            <button
               onClick={() => scrollToSection('connect')}
               className="text-3xl font-heading font-bold text-white hover:text-[#00f0ff] transition-colors uppercase bg-transparent border-none"
             >
               {t.nav.connect}
             </button>
-            
-            <button 
+
+            <button
               onClick={() => scrollToSection('connect')}
               className="mt-8 border border-[#00f0ff] text-[#00f0ff] px-10 py-4 text-sm font-bold tracking-widest uppercase bg-transparent hover:bg-[#00f0ff] hover:text-black transition-colors"
             >
@@ -420,12 +420,12 @@ const App: React.FC = () => {
       <header className="relative h-[100svh] min-h-[600px] flex flex-col items-center justify-center overflow-hidden px-4">
         {/* 3D Background Object */}
         <Hero3DObject />
-        
-        <motion.div 
+
+        <motion.div
           style={{ y, opacity }}
           className="z-10 text-center flex flex-col items-center w-full max-w-6xl pb-24 md:pb-20"
         >
-           {/* Tagline */}
+          {/* Tagline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -433,26 +433,26 @@ const App: React.FC = () => {
             className="flex items-center gap-3 md:gap-6 text-[10px] md:text-sm font-mono text-[#00f0ff] tracking-[0.3em] uppercase mb-6 bg-[#00f0ff]/10 border border-[#00f0ff]/20 px-6 py-2 backdrop-blur-sm"
           >
             <span>{t.hero.tagline[0]}</span>
-            <span className="w-1 h-1 bg-white rounded-full"/>
+            <span className="w-1 h-1 bg-white rounded-full" />
             <span>{t.hero.tagline[1]}</span>
-            <span className="w-1 h-1 bg-white rounded-full"/>
+            <span className="w-1 h-1 bg-white rounded-full" />
             <span>{t.hero.tagline[2]}</span>
           </motion.div>
 
           {/* Main Title */}
           <div className="relative w-full flex justify-center items-center">
-            <GradientText 
-              text={t.hero.title} 
-              as="h1" 
-              className="text-[12vw] md:text-[11vw] leading-[0.9] font-black tracking-tighter text-center" 
+            <GradientText
+              text={t.hero.title}
+              as="h1"
+              className="text-[12vw] md:text-[11vw] leading-[0.9] font-black tracking-tighter text-center"
             />
           </div>
-          
+
           <motion.div
-             initial={{ scaleX: 0 }}
-             animate={{ scaleX: 1 }}
-             transition={{ duration: 1.5, delay: 0.5, ease: "circOut" }}
-             className="w-full max-w-xs h-px bg-gradient-to-r from-transparent via-[#2962ff] to-transparent mt-8 md:mt-12 mb-8"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 1.5, delay: 0.5, ease: "circOut" }}
+            className="w-full max-w-xs h-px bg-gradient-to-r from-transparent via-[#2962ff] to-transparent mt-8 md:mt-12 mb-8"
           />
 
           <motion.p
@@ -467,7 +467,7 @@ const App: React.FC = () => {
 
         {/* MARQUEE - Crypto Ticker Style */}
         <div className="absolute bottom-12 md:bottom-16 left-0 w-full py-3 md:py-4 bg-[#0a0b1e] border-y border-[#2962ff]/30 z-20 overflow-hidden">
-          <motion.div 
+          <motion.div
             className="flex w-fit will-change-transform"
             animate={{ x: "-50%" }}
             transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
@@ -493,8 +493,8 @@ const App: React.FC = () => {
       <section id="portfolio" className="relative z-10 py-20 md:py-32">
         <div className="max-w-[1600px] mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16 px-4 border-l-2 border-[#2962ff] pl-6">
-             <h2 className="text-4xl md:text-7xl font-heading font-bold uppercase leading-[0.9] text-white">
-              {t.portfolioSection.title1} <br/> 
+            <h2 className="text-4xl md:text-7xl font-heading font-bold uppercase leading-[0.9] text-white">
+              {t.portfolioSection.title1} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] to-[#2962ff]">{t.portfolioSection.title2}</span>
             </h2>
             <p className="text-gray-400 mt-4 md:mt-0 max-w-md text-sm md:text-base">
@@ -519,19 +519,19 @@ const App: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-center">
             <div className="lg:col-span-5 order-2 lg:order-1">
               <h2 className="text-3xl md:text-6xl font-heading font-bold mb-6 md:mb-8 leading-tight">
-                {t.thesisSection.title1} <br/> <GradientText text={t.thesisSection.title2} className="text-4xl md:text-7xl" />
+                {t.thesisSection.title1} <br /> <GradientText text={t.thesisSection.title2} className="text-4xl md:text-7xl" />
               </h2>
               <p className="text-lg text-gray-400 mb-8 md:mb-12 font-light leading-relaxed">
                 {t.thesisSection.desc}
               </p>
-              
+
               <div className="space-y-6 md:space-y-8">
                 {t.thesisSection.features.map((feature, i) => {
-                   const icons = [Network, TrendingUp, Globe];
-                   const Icon = icons[i];
-                   return (
+                  const icons = [Network, TrendingUp, Globe];
+                  const Icon = icons[i];
+                  return (
                     <div
-                      key={i} 
+                      key={i}
                       className="flex items-start gap-6 group"
                     >
                       <div className="p-4 rounded-none border border-[#2962ff]/30 bg-[#2962ff]/5 group-hover:bg-[#2962ff]/20 transition-colors">
@@ -542,7 +542,7 @@ const App: React.FC = () => {
                         <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">{feature.desc}</p>
                       </div>
                     </div>
-                   );
+                  );
                 })}
               </div>
             </div>
@@ -550,13 +550,13 @@ const App: React.FC = () => {
             <div className="lg:col-span-7 relative h-[400px] md:h-[600px] w-full order-1 lg:order-2">
               <div className="absolute inset-0 bg-gradient-to-br from-[#2962ff] to-[#6200ea] rounded-none translate-x-4 translate-y-4 opacity-20" />
               <div className="relative h-full w-full bg-[#050614] border border-white/10 group overflow-hidden">
-                <img 
-                  src="/data-center.avif" 
-                  alt="Data Center" 
-                  className="h-full w-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-[1.5s] grayscale group-hover:grayscale-0" 
+                <img
+                  src="/data-center.avif"
+                  alt="Data Center"
+                  className="h-full w-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-[1.5s] grayscale group-hover:grayscale-0"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050614] via-transparent to-transparent opacity-90" />
-                
+
                 <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12">
                   <div className="text-5xl md:text-7xl font-heading font-bold text-white">
                     $50M+
@@ -575,14 +575,14 @@ const App: React.FC = () => {
       <section id="connect" className="relative z-10 py-20 md:py-32 px-4 md:px-6 bg-[#050614]/80 backdrop-blur-lg">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 md:mb-20">
-             <h2 className="text-5xl md:text-9xl font-heading font-bold opacity-10 text-white select-none">
-               {t.connectSection.title}
-             </h2>
-             <p className="text-[#2962ff] font-mono uppercase tracking-[0.3em] -mt-4 md:-mt-10 relative z-10 text-sm md:text-base">
-               {t.connectSection.subtitle}
-             </p>
+            <h2 className="text-5xl md:text-9xl font-heading font-bold opacity-10 text-white select-none">
+              {t.connectSection.title}
+            </h2>
+            <p className="text-[#2962ff] font-mono uppercase tracking-[0.3em] -mt-4 md:-mt-10 relative z-10 text-sm md:text-base">
+              {t.connectSection.subtitle}
+            </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {t.connectSection.cards.map((tier, i) => {
               const isPurchasing = purchasingIndex === i;
@@ -599,7 +599,7 @@ const App: React.FC = () => {
                   data-hover={!isDisabled}
                 >
                   <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#2962ff] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  
+
                   <div className="flex-1">
                     <Icon className="w-10 h-10 text-[#2962ff] mb-6" />
                     <h3 className="text-2xl md:text-3xl font-heading font-bold mb-2 text-white">{tier.name}</h3>
@@ -610,17 +610,17 @@ const App: React.FC = () => {
                       {tier.desc}
                     </p>
                   </div>
-                  
-                  <button 
+
+                  <button
                     onClick={() => handleInquiry(i)}
                     disabled={isDisabled}
                     className={`w-full py-4 text-sm font-bold uppercase tracking-[0.2em] border transition-all duration-300 mt-8 relative overflow-hidden
-                      ${isPurchased 
-                        ? 'bg-[#00f0ff] text-black border-[#00f0ff] cursor-default' 
-                        : isPurchasing 
+                      ${isPurchased
+                        ? 'bg-[#00f0ff] text-black border-[#00f0ff] cursor-default'
+                        : isPurchasing
                           ? 'bg-white/10 text-white border-white/10 cursor-wait'
-                          : isDisabled 
-                            ? 'cursor-not-allowed opacity-50 border-white/10' 
+                          : isDisabled
+                            ? 'cursor-not-allowed opacity-50 border-white/10'
                             : 'text-white border-white/20 hover:border-[#00f0ff] hover:text-[#00f0ff] bg-transparent'
                       }`}
                   >
@@ -628,7 +628,7 @@ const App: React.FC = () => {
                       {isPurchasing ? t.connectSection.states.processing : isPurchased ? t.connectSection.states.sent : tier.action}
                     </span>
                   </button>
-                  
+
                   {isPurchased && (
                     <motion.p
                       initial={{ opacity: 0, y: -10 }}
@@ -648,20 +648,20 @@ const App: React.FC = () => {
       <footer className="relative z-10 border-t border-white/10 py-12 md:py-16 bg-[#050614]">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
           <div>
-             <div className="flex items-center gap-2 mb-4">
-                <img src="logo.png" alt="UZ CAPITAL" className="h-12 w-auto object-contain" />
-                <span className="font-heading text-xl font-bold tracking-tighter text-white">UZ CAPITAL</span>
-             </div>
-             <div className="flex gap-2 text-xs font-mono text-gray-500 uppercase tracking-widest">
-               <span>{t.footer.locations[0]}</span> • <span>{t.footer.locations[1]}</span> • <span>{t.footer.locations[2]}</span>
-             </div>
-             <div className="mt-2 text-xs text-gray-600">
-               &copy; 2025 UZ Capital Ventures. {t.footer.rights}
-             </div>
+            <div className="flex items-center gap-2 mb-4">
+              <img src="logo.png" alt="UZ CAPITAL" className="h-12 w-auto object-contain" />
+              <span className="font-heading text-xl font-bold tracking-tighter text-white">UZ CAPITAL</span>
+            </div>
+            <div className="flex gap-2 text-xs font-mono text-gray-500 uppercase tracking-widest">
+              <span>{t.footer.locations[0]}</span> • <span>{t.footer.locations[1]}</span> • <span>{t.footer.locations[2]}</span>
+            </div>
+            <div className="mt-2 text-xs text-gray-600">
+              &copy; 2025 UZ Capital Ventures. {t.footer.rights}
+            </div>
           </div>
-          
+
           <div className="flex gap-8 flex-wrap">
-            <a href="https://x.com/uz_capital" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00f0ff] font-bold uppercase text-xs tracking-widest transition-colors cursor-pointer" data-hover="true">
+            <a href="https://x.com/UZcapitalX" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#00f0ff] font-bold uppercase text-xs tracking-widest transition-colors cursor-pointer" data-hover="true">
               Twitter / X
             </a>
             <a href="#" className="text-gray-400 hover:text-[#00f0ff] font-bold uppercase text-xs tracking-widest transition-colors cursor-pointer" data-hover="true">
@@ -720,10 +720,10 @@ const App: React.FC = () => {
               {/* Image Side */}
               <div className="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden">
                 <AnimatePresence mode="wait">
-                  <motion.img 
+                  <motion.img
                     key={selectedCompany.id}
-                    src={selectedCompany.image} 
-                    alt={selectedCompany.name} 
+                    src={selectedCompany.image}
+                    alt={selectedCompany.name}
                     initial={{ opacity: 0, scale: 1.1 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0 }}
@@ -743,25 +743,25 @@ const App: React.FC = () => {
                   transition={{ duration: 0.4, delay: 0.1 }}
                 >
                   <div className="flex items-center gap-3 text-[#00f0ff] mb-6">
-                     <Layers className="w-4 h-4" />
-                     <span className="font-mono text-xs tracking-[0.2em] uppercase border border-[#00f0ff]/30 px-2 py-1">{selectedCompany.stage}</span>
+                    <Layers className="w-4 h-4" />
+                    <span className="font-mono text-xs tracking-[0.2em] uppercase border border-[#00f0ff]/30 px-2 py-1">{selectedCompany.stage}</span>
                   </div>
-                  
+
                   <h3 className="text-4xl md:text-5xl font-heading font-bold uppercase leading-none mb-2 text-white">
                     {selectedCompany.name}
                   </h3>
-                  
+
                   <p className="text-lg text-gray-400 font-mono tracking-widest uppercase mb-8">
                     {selectedCompany.sector}
                   </p>
-                  
+
                   <div className="h-px w-20 bg-[#2962ff] mb-8" />
-                  
+
                   <p className="text-gray-300 leading-relaxed text-lg font-light mb-8">
                     {selectedCompany.description}
                   </p>
-                  
-                   <button className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white hover:text-[#00f0ff] transition-colors group" data-hover="true">
+
+                  <button className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white hover:text-[#00f0ff] transition-colors group" data-hover="true">
                     {t.modal.viewWebsite} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </motion.div>
